@@ -1,0 +1,51 @@
+
+
+<!--
+<a [routerLink] = "'/customers'">
+  Go to Products List
+</a>
+<div *ngFor="let article of articles">
+  <h2>{{article.customerId}}</h2>
+
+    <p>
+      {{article.firstName}}
+    </p>
+    <a href="{{article.lastName}}">Read full article</a>
+</div>
+-->
+<div class="mat-elevation-z8" style="width: 90%">
+<mat-table [dataSource]="dataSource">
+<ng-container  matColumnDef="customerId">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.customerId}}33</mat-cell>
+</ng-container>
+<ng-container  matColumnDef="firstName">
+    <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.firstName}}</mat-cell>
+</ng-container>
+    <ng-container  matColumnDef="lastName">
+    <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.lastName}}</mat-cell>
+</ng-container>
+    <ng-container  matColumnDef="dateOfBirth">
+    <mat-header-cell *matHeaderCellDef>DOB</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.dateOfBirth}}</mat-cell>
+</ng-container>
+<ng-container  matColumnDef="custBalance">
+    <mat-header-cell *matHeaderCellDef>Outstanding Amt</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.custBalance}}</mat-cell>
+</ng-container>
+<ng-container  matColumnDef="contraStartDate">
+    <mat-header-cell *matHeaderCellDef>Contract St Dt</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.contraStartDate}}</mat-cell>
+</ng-container>
+<ng-container  matColumnDef="custStatus">
+    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.custStatus}}</mat-cell>
+</ng-container>
+
+<mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
+</mat-table>
+</div>
+

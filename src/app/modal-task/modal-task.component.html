@@ -1,0 +1,63 @@
+<div class="container" style="width:600px;height: auto">
+    
+<div *ngIf="data.taskStatus == 'COMPLETED'; else notShow">
+  <p>
+    Task #{{data.taskId}} already COMPLETED.
+  </p>
+     <div mat-dialog-actions>
+        
+      <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+    </div>
+</div>
+
+<ng-template #notShow>
+    <h3 mat-dialog-title><b>TASK ID: {{data.taskId}}</b></h3>
+    <div style="width:400px">
+        <table>
+        
+        <tr>
+            <td>Customer id : </td><td>{{data.customer.customerId}}</td>
+        </tr>
+        <tr>
+            <td>First Name: </td><td>{{data.customer.firstName}}</td>
+            <td>Last Name: </td><td>{{data.customer.lastName}}</td>
+        </tr>
+        <tr>
+            <td>Outstading bill: </td><td>{{data.customer.custBalance}}</td>
+        </tr>
+             <tr>
+            <td>Contract Start Date: </td><td>{{data.customer.contraStartDate}}</td>
+        </tr>
+             <tr>
+            <td>Customer status: </td><td>{{data.customer.custStatus}}</td>
+        </tr>
+        </table>
+    </div>
+
+  <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm" style="height: 200px">
+
+    <!--Textarea for demo purposes-->
+    <div class="form" style="width: 500px">
+      <mat-form-field color="accent" style="width: 300px">
+        <textarea matInput #input class="form-control" placeholder="Task Details" [(ngModel)]="data.taskDetails" name="taskdetails" required ></textarea>
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+      <mat-form-field>
+          <mat-label>Action</mat-label>
+          <select matNativeControl required name="action" [(ngModel)]="data.action">
+            <option value="PORTOUT_APPROVED">Portout Approved</option>
+            <option value="PORTOUT_REJECTED">Portout Rejected</option>
+          </select>
+        </mat-form-field>
+
+    <div mat-dialog-actions>
+        <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="stopEdit()">Save</button>
+      <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+    </div>
+  </form>
+</ng-template>
+    
+    
+  
+</div>

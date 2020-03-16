@@ -1,0 +1,42 @@
+<div class="mat-elevation-z8" style="width: 90%">
+<mat-table [dataSource]="dataSource">
+<ng-container  matColumnDef="taskId">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.taskId}}</mat-cell>
+</ng-container>
+<ng-container  matColumnDef="taskDetails">
+    <mat-header-cell *matHeaderCellDef>TaskDetails</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.taskDetails}}</mat-cell>
+</ng-container>
+    <ng-container  matColumnDef="customer">
+    <mat-header-cell *matHeaderCellDef>Customer</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.customer.customerId}}</mat-cell>
+</ng-container>
+    <ng-container  matColumnDef="msisdn">
+    <mat-header-cell *matHeaderCellDef>MSISDN</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.msisdn.msisdn}}</mat-cell>
+</ng-container>
+<ng-container  matColumnDef="taskStatus">
+    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.taskStatus}}</mat-cell>
+</ng-container>
+    <ng-container  matColumnDef="contraStartDate">
+    <mat-header-cell *matHeaderCellDef>ContractStartDate</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.customer.contraStartDate}}</mat-cell>
+</ng-container>
+<!--
+<ng-container  matColumnDef="operations">
+    <mat-header-cell *matHeaderCellDef>Operation</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource"><a href="click:editCustomer(datasource);" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modalLoginForm">Launch</a></mat-cell>
+</ng-container>
+-->
+    
+<ng-container  matColumnDef="operations">
+    <mat-header-cell *matHeaderCellDef>Operation</mat-header-cell>
+    <mat-cell *matCellDef="let dataSource"><button  mat-button  color="primary" (click)="editCustomer(dataSource)"><mat-icon>edit</mat-icon></button></mat-cell>
+</ng-container>
+<mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
+</mat-table>
+</div>
+
