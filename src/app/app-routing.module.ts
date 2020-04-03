@@ -4,6 +4,8 @@ import { CustomerlistComponent } from './customerlist/customerlist.component';
 import { HomeComponent } from './home/home.component';
 import { TasklistComponent } from './tasklist/tasklist.component';
 import { ModalTaskComponent } from './modal-task/modal-task.component';
+import { OrderlistComponent } from './orderlist/orderlist.component';
+  
 
 
 
@@ -12,7 +14,8 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path:'customers', component: CustomerlistComponent},
     { path:'tasklists', component: TasklistComponent},
-    { path:'editmodal', component: ModalTaskComponent}
+    { path:'editmodal', component: ModalTaskComponent},
+    { path: 'orderlist', component: OrderlistComponent}
 ];
 
 @NgModule({

@@ -12,6 +12,7 @@ import { MyMaterialModule } from './material.module';
 import { TasklistComponent } from './tasklist/tasklist.component';
 import { ModalTaskComponent } from './modal-task/modal-task.component';
 import { FormsModule }   from '@angular/forms';
+import { OrderlistComponent } from './orderlist/orderlist.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule }   from '@angular/forms';
     CustomerlistComponent,
     HomeComponent,
     TasklistComponent,
-    ModalTaskComponent
+    ModalTaskComponent,
+    OrderlistComponent
   ],
   imports: [
     BrowserModule,

@@ -55,7 +55,15 @@ export class ApiService {
         return this.httpClient.get(`${API2}`,httpOptions);
        
   } 
-    
+  public getOrderlists(){
+        
+    console.log('In getOrderlists call--1->');
+        
+    var API2='http://localhost:8082/backoffice/getorders';
+       
+        return this.httpClient.get(`${API2}`,httpOptions);
+       
+  } 
     public updateTasks(data) {
         var API3=`http://localhost:8082/mnp/task/${data.taskId}`;
         var body=`{"taskDetails": "${data.taskDetails}","taskAction": "${data.action}","reason": "approving"}`;

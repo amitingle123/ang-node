@@ -1,10 +1,22 @@
-<mat-toolbar  color="primary"  class="fixed-header">
-<mat-toolbar-row>
-<span><img  src="assets/image/logo10.png"  style="width:50px;"></span>
-<a  mat-button  routerLink="/customers"  routerLinkActive="active">Customers</a>
-<a  mat-button  routerLink="/tasklists">Tasks</a>
-</mat-toolbar-row>
-</mat-toolbar>
-<main>
-<router-outlet  style="margin-top: 80px;"></router-outlet>
-</main>
+<!DOCTYPE html>
+<html>
+<body>
+
+    <mat-toolbar  color="primary"  class="fixed-header">
+        <mat-toolbar-row>
+        <span><img  src="assets/image/logo10.png"  style="width:50px;"></span>
+        <a  mat-button  routerLink="/customers"  routerLinkActive="active">Customers</a>
+        <a  mat-button  routerLink="/tasklists">Tasks</a>
+        <a  mat-button routerLink="/orderlist">Orders</a>
+        </mat-toolbar-row>
+        </mat-toolbar>
+        <main>
+        <router-outlet  style="margin-top: 80px;"></router-outlet>
+        </main>
+
+</body>
+</html>
+
+
+
+

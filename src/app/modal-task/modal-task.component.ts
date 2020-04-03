@@ -46,6 +46,7 @@ ngOnInit() {
   onNoClick(): void {
       console.log('in cancel--');
    this.dialogRef.close();
+   this.dialogRef.afterClosed().subscribe(()=> this.ngOnInit());
   }
 
   stopEdit(): void {

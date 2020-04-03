@@ -1,0 +1,63 @@
+
+
+<!--
+<a [routerLink] = "'/customers'">
+  Go to Products List
+</a>
+<div *ngFor="let article of articles">
+  <h2>{{article.customerId}}</h2>
+
+    <p>
+      {{article.firstName}}
+    </p>
+    <a href="{{article.lastName}}">Read full article</a>
+</div>
+-->
+<div ng-app="myApp" ng-controller="myCtrl">
+    <h1 ng-click="changeName()">dfsfsdfsdfs{{firstname}}</h1>
+    <a onclick="changeName();">click me</a>
+  </div>
+
+<div class="mat-elevation-z8" style="width: 90%" >
+    <mat-table [dataSource]="dataSource">
+    <ng-container  matColumnDef="orderId">
+        <mat-header-cell *matHeaderCellDef>Order ID</mat-header-cell>
+        <mat-cell *matCellDef="let dataSource">{{dataSource.orderId}}</mat-cell>
+    </ng-container>
+    <ng-container  matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+        <mat-cell *matCellDef="let dataSource">{{dataSource.customer.firstName}}</mat-cell>
+    </ng-container>
+        <ng-container  matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+        <mat-cell *matCellDef="let dataSource">{{dataSource.customer.lastName}}</mat-cell>
+    </ng-container>
+        <ng-container  matColumnDef="msisdn">
+        <mat-header-cell *matHeaderCellDef>MSISDN</mat-header-cell>
+        <mat-cell *matCellDef="let dataSource">{{dataSource.msisdn.msisdn}}</mat-cell>
+    </ng-container>
+    <ng-container  matColumnDef="extPortRequestId">
+        <mat-header-cell *matHeaderCellDef>Portout id</mat-header-cell>
+        <mat-cell *matCellDef="let dataSource">{{dataSource.extPortRequestId}}</mat-cell>
+    </ng-container>
+    <ng-container  matColumnDef="orderStatus">
+        <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+        <mat-cell *matCellDef="let dataSource">{{dataSource.orderStatus}}</mat-cell>
+    </ng-container>
+    <ng-container  matColumnDef="statusReason">
+        <mat-header-cell *matHeaderCellDef>Reason</mat-header-cell>
+        <mat-cell *matCellDef="let dataSource">{{dataSource.statusReason}}</mat-cell>
+    </ng-container>
+    <ng-container  matColumnDef="createdOn">
+        <mat-header-cell *matHeaderCellDef>Created On</mat-header-cell>
+        <mat-cell *matCellDef="let dataSource">{{dataSource.createdOn}}</mat-cell>
+    </ng-container>
+    <ng-container  matColumnDef="updatedOn">
+        <mat-header-cell *matHeaderCellDef>Updated on</mat-header-cell>
+        <mat-cell *matCellDef="let dataSource">{{dataSource.updatedOn}}</mat-cell>
+    </ng-container>
+    
+    <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
+    </mat-table>
+    </div>

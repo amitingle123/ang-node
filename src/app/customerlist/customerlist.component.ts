@@ -16,13 +16,9 @@ tableColumns  :  string[] = ['customerId', 'firstName','lastName','dateOfBirth',
   ngOnInit(): void {
       console.log('in service call');
      this.apiService.getCustomers().subscribe((data)=>{
-        console.log('jjjjjjj'+data.isPrototypeOf) ;
-     
-      
+             
       this.dataSource = data;
-      
-      
-      
+            
   });
 //      this.apiService.getCustomers.arguments((data)=>{
 //        console.log('jjjjjjj'+data) ;
