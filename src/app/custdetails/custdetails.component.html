@@ -1,0 +1,30 @@
+<div class="mat-elevation-z8" style="width: 90%;margin-left: 50px;">
+   
+<div class="mdc-form-field" *ngIf='datasource; else notShow' style="margin-left: 20px;">
+    <h2 class="mat-h2">Customer Details</h2>
+    <button mat-button (click)='onBack();'>Go back !</button>
+    <mat-list>
+        <mat-list-item> <mat-label>First Name</mat-label><b style="margin-left: '15px'; margin-right:5px ;">:</b>{{datasource.firstName}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Last Name <b style="margin-left: '15px'; margin-right:5px ;">:</b> {{datasource.lastName}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>DOB <b style="margin-left: '15px'; margin-right:5px ;">:</b> {{datasource.dateOfBirth | date :'dd/MM/yyyy'}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Status <b style="margin-left: '15px'; margin-right:5px ;">:</b> {{datasource.custStatus}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Outstanding Amount <b style="margin-left: '15px'; margin-right:5px ;">:</b> {{datasource.custBalance | currency}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Contract Start Date <b style="margin-left: '15px'; margin-right:5px ;">:</b> {{datasource.contraStartDate | date :'dd/MM/yyyy'}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Created On <b style="margin-left: '15px'; margin-right:5px ;">:</b> {{datasource.createdOn | date :'dd/MM/yyyy'}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Updated On <b style="margin-left: '15px'; margin-right:5px ;">:</b> {{datasource.updatedOn | date:'dd/MM/yyyy HH:mm:ss' }}</mat-list-item>
+      </mat-list>
+        
+    </div>
+    <ng-template #notShow>
+    
+        No Customer Details Found !
+    
+    </ng-template>
+</div>
