@@ -14,7 +14,7 @@
 </div>
 -->
 <div class="mat-elevation-z8" style="width: 90%">
-<mat-table [dataSource]="dataSource">
+<mat-table [dataSource]="dataSource" *ngIf="dataSource">
 <ng-container  matColumnDef="customerId">
     <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
     <mat-cell *matCellDef="let dataSource">{{dataSource.customerId}}</mat-cell>
@@ -29,7 +29,7 @@
 </ng-container>
     <ng-container  matColumnDef="dateOfBirth">
     <mat-header-cell *matHeaderCellDef>DOB</mat-header-cell>
-    <mat-cell *matCellDef="let dataSource">{{dataSource.dateOfBirth}}</mat-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.dateOfBirth | date: 'dd/MM/yyyy'}}</mat-cell>
 </ng-container>
 <ng-container  matColumnDef="custBalance">
     <mat-header-cell *matHeaderCellDef>Outstanding Amt</mat-header-cell>
@@ -37,7 +37,7 @@
 </ng-container>
 <ng-container  matColumnDef="contraStartDate">
     <mat-header-cell *matHeaderCellDef>Contract St Dt</mat-header-cell>
-    <mat-cell *matCellDef="let dataSource">{{dataSource.contraStartDate}}</mat-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.contraStartDate | date: 'dd/MM/yyyy'}}</mat-cell>
 </ng-container>
 <ng-container  matColumnDef="custStatus">
     <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>

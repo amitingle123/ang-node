@@ -13,6 +13,8 @@ import { TasklistComponent } from './tasklist/tasklist.component';
 import { ModalTaskComponent } from './modal-task/modal-task.component';
 import { FormsModule }   from '@angular/forms';
 import { OrderlistComponent } from './orderlist/orderlist.component';
+import { RegisterComponent } from './register/register.component';
+import { CustdetailsComponent } from './custdetails/custdetails.component';
 
 
 @NgModule({
@@ -22,7 +24,10 @@ import { OrderlistComponent } from './orderlist/orderlist.component';
     HomeComponent,
     TasklistComponent,
     ModalTaskComponent,
-    OrderlistComponent
+    OrderlistComponent,
+    RegisterComponent,
+    CustdetailsComponent
+    
   ],
   imports: [
     BrowserModule,

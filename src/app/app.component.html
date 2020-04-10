@@ -5,15 +5,16 @@
     <mat-toolbar  color="primary"  class="fixed-header">
         <mat-toolbar-row>
         <span><img  src="assets/image/logo10.png"  style="width:50px;"></span>
-        <a  mat-button  routerLink="/customers"  routerLinkActive="active">Customers</a>
-        <a  mat-button  routerLink="/tasklists">Tasks</a>
-        <a  mat-button routerLink="/orderlist">Orders</a>
+        <a  mat-button  routerLink="/customers"  routerLinkActive="buttonhigh">Customers</a>
+        <a  mat-button  routerLink="/tasklists" routerLinkActive="buttonhigh">Tasks</a>
+        <a  mat-button routerLink="/orderlist" routerLinkActive="buttonhigh">Orders</a>
+        <a  mat-button routerLink ="/register" routerLinkActive="buttonhigh">Register</a>
         </mat-toolbar-row>
         </mat-toolbar>
         <main>
         <router-outlet  style="margin-top: 80px;"></router-outlet>
         </main>
-
+        
 </body>
 </html>
 

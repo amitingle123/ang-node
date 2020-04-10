@@ -13,11 +13,6 @@
     <a href="{{article.lastName}}">Read full article</a>
 </div>
 -->
-<div ng-app="myApp" ng-controller="myCtrl">
-    <h1 ng-click="changeName()">dfsfsdfsdfs{{firstname}}</h1>
-    <a onclick="changeName();">click me</a>
-  </div>
-
 <div class="mat-elevation-z8" style="width: 90%" >
     <mat-table [dataSource]="dataSource">
     <ng-container  matColumnDef="orderId">
@@ -26,7 +21,7 @@
     </ng-container>
     <ng-container  matColumnDef="firstName">
         <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
-        <mat-cell *matCellDef="let dataSource">{{dataSource.customer.firstName}}</mat-cell>
+        <mat-cell *matCellDef="let dataSource"><a [routerLink]="['/customerdetails',dataSource.customer.customerId]">{{dataSource.customer.firstName}}</a></mat-cell>
     </ng-container>
         <ng-container  matColumnDef="lastName">
         <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
@@ -50,11 +45,11 @@
     </ng-container>
     <ng-container  matColumnDef="createdOn">
         <mat-header-cell *matHeaderCellDef>Created On</mat-header-cell>
-        <mat-cell *matCellDef="let dataSource">{{dataSource.createdOn}}</mat-cell>
+        <mat-cell *matCellDef="let dataSource">{{dataSource.createdOn | date: 'dd/MM/yyyy'}}</mat-cell>
     </ng-container>
     <ng-container  matColumnDef="updatedOn">
         <mat-header-cell *matHeaderCellDef>Updated on</mat-header-cell>
-        <mat-cell *matCellDef="let dataSource">{{dataSource.updatedOn}}</mat-cell>
+        <mat-cell *matCellDef="let dataSource">{{ dataSource.updatedOn| date:'dd/MM/yyyy HH:mm:ss' }}</mat-cell>
     </ng-container>
     
     <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>

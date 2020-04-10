@@ -22,7 +22,7 @@
 </ng-container>
     <ng-container  matColumnDef="contraStartDate">
     <mat-header-cell *matHeaderCellDef>ContractStartDate</mat-header-cell>
-    <mat-cell *matCellDef="let dataSource">{{dataSource.customer.contraStartDate}}</mat-cell>
+    <mat-cell *matCellDef="let dataSource">{{dataSource.customer.contraStartDate | date: 'dd/MM/yyyy'}}</mat-cell>
 </ng-container>
 <!--
 <ng-container  matColumnDef="operations">
