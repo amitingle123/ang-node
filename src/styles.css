@@ -1,7 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .buttonhigh{
     color: yellow;
+}
+
+div.card-header {
+ font-size: large;
+ color: white;
+ background-color: #c3aaee;
+}
+
+div.card {
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-right: 15px;
+}
+
+.table {
+  margin-top: 10px
+}
+
+.col-md-6.myapp {
+  margin-left: 80px;
 }

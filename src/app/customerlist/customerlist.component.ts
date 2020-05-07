@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { ServiceError } from '../apiservice.error';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-customerlist',
@@ -7,25 +10,25 @@ import { ApiService } from '../api.service';
   styleUrls: ['./customerlist.component.css']
 })
 export class CustomerlistComponent implements OnInit {
-    
-dataSource;
-    
-tableColumns  :  string[] = ['customerId', 'firstName','lastName','dateOfBirth','custBalance','contraStartDate','custStatus'];
- constructor(private apiService: ApiService) { }
+
+  dataSource;
+  errorMessage: string;
+
+  tableColumns: string[] = ['customerId', 'firstName', 'lastName', 'dateOfBirth', 'custBalance', 'contraStartDate', 'custStatus'];
+  constructor(private apiService: ApiService,
+              private route : ActivatedRoute) { }
+
 
   ngOnInit(): void {
-      console.log('in service call');
-    //  this.apiService.getCustomers().subscribe((data)=>{
 
-      this.apiService.getCustomerList().subscribe((data)=>{
-             
-      this.dataSource = data;
-            
-  });
-//      this.apiService.getCustomers.arguments((data)=>{
-//        console.log('jjjjjjj'+data) ;
-//     this.articles = data['articles'];
-//  });
+    let customerList : Observable<Object| ServiceError> = this.route.snapshot.data['customerlist'];
+
+    if(customerList instanceof ServiceError){
+      console.log('inside error');
+      this.errorMessage = customerList.friendlyMessage
+      console.log(customerList.errorString)
+    } else {
+      this.dataSource= customerList;
+    } 
   }
-
 }

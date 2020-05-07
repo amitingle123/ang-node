@@ -1,5 +1,9 @@
+<div class="alert alert-danger"
+*ngIf="errorMessage">
+{{errorMessage}}
+</div>
 <div class="mat-elevation-z8" style="width: 90%">
-<mat-table [dataSource]="dataSource">
+<mat-table [dataSource]="dataSource" *ngIf="dataSource">
 <ng-container  matColumnDef="taskId">
     <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
     <mat-cell *matCellDef="let dataSource">{{dataSource.taskId}}</mat-cell>
@@ -39,4 +43,5 @@
 <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
 </mat-table>
 </div>
+
 

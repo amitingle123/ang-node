@@ -15,7 +15,7 @@ export class CustDetailsGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       let id = next.url[1].path;
-      if(!id.startsWith('CUS')){
+      if(!id.startsWith('CUST')){
         alert('Invalid customer id');
         this.router.navigate(['/orderlist']);
         return false;

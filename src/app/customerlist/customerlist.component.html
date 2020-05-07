@@ -1,18 +1,8 @@
 
-
-<!--
-<a [routerLink] = "'/customers'">
-  Go to Products List
-</a>
-<div *ngFor="let article of articles">
-  <h2>{{article.customerId}}</h2>
-
-    <p>
-      {{article.firstName}}
-    </p>
-    <a href="{{article.lastName}}">Read full article</a>
+<div class="alert alert-danger"
+*ngIf="errorMessage">
+{{errorMessage}}
 </div>
--->
 <div class="mat-elevation-z8" style="width: 90%">
 <mat-table [dataSource]="dataSource" *ngIf="dataSource">
 <ng-container  matColumnDef="customerId">
@@ -33,7 +23,7 @@
 </ng-container>
 <ng-container  matColumnDef="custBalance">
     <mat-header-cell *matHeaderCellDef>Outstanding Amt</mat-header-cell>
-    <mat-cell *matCellDef="let dataSource">{{dataSource.custBalance}}</mat-cell>
+    <mat-cell *matCellDef="let dataSource" appHighlight threshold="100">{{dataSource.custBalance}}</mat-cell>
 </ng-container>
 <ng-container  matColumnDef="contraStartDate">
     <mat-header-cell *matHeaderCellDef>Contract St Dt</mat-header-cell>
@@ -48,4 +38,6 @@
 <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
 </mat-table>
 </div>
-
+<div>asdfsfsgsgs
+    <app-hero-parent></app-hero-parent>
+</div>

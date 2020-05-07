@@ -1,5 +1,132 @@
-<p>register works!</p>
-<form (submit)="doSubmit(this);">
-    <input type="text" #myTemp name="temp"/>
-    <button>Submit</button>
-</form>
+<div class="card">
+  <div class="card-header">
+    Customer Registration
+  </div>
+  
+  <div class="card-body">
+    <div class="alert alert-danger"
+      *ngIf="errorMessage">
+      {{errorMessage}}
+      </div>
+    <mat-card>
+      <form novalidate 
+            (ngSubmit)="save(signupform)" 
+            #signupform="ngForm" name="signupForm">
+      <div class="example-container">
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="Required" 
+              required 
+              minlength="3" 
+              [(ngModel)]=customer.firstName
+              name="firstName"
+              #firstNameVar="ngModel"
+              [ngClass]="{'is-invalid': (firstNameVar.touched || firstNameVar.dirty) && !firstNameVar.valid }" />
+              <span class="invalid-feedback">
+                <span *ngIf="firstNameVar.errors?.required">
+                  Please enter your first name.
+                </span>
+                <span *ngIf="firstNameVar.errors?.minlength">
+                  The first name must be longer than 3 characters.
+                </span>
+              </span>
+        </mat-form-field>
+       
+        
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Required" 
+          required 
+          minlength="3" 
+          [(ngModel)]=customer.lastName
+          name="lastName"
+          #lastNameVar="ngModel"
+          [ngClass]="{'is-invalid': (lastNameVar.touched || lastNameVar.dirty) && !lastNameVar.valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="lastNameVar.errors?.required">
+              Please enter your lastName name.
+            </span>
+            <span *ngIf="lastNameVar.errors?.minlength">
+              The last name must be longer than 3 characters.
+            </span>
+          </span>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Date fo birth (dd/MM/yyyy)</mat-label>
+          <input matInput [matDatepicker]="picker" [max]="today"
+            required
+            [(ngModel)]=customer.dateOfBirth
+            name="dateOfBirth"
+            #dateOfBirthVar="ngModel"
+            [ngClass]="{'is-invalid': (dateOfBirthVar.touched || dateOfBirthVar.dirty) && !dateOfBirthVar.valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="dateOfBirthVar.errors?.required">
+                Please enter date of birth.
+              </span>
+            </span>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Balance amount</mat-label>
+          <input matInput 
+            [(ngModel)]=customer.balance
+            name="balance" value=0/>
+        </mat-form-field>
+        <br>
+
+        <!-- <mat-form-field>
+          <mat-label>Contract Start Date(dd/MM/yyyy)</mat-label>
+          <input matInput [matDatepicker]="picker1"
+          required
+          [(ngModel)]=customer.contractStDate
+          name="contractStDate"
+          #contractStDate="ngModel"
+          [ngClass]="{'is-invalid': contractStDate.touched || contractStDate.dirty}"/>
+          <span class="invalid-feedback">
+            <span *ngIf="contractStDate.errors?.required">
+              Please enter date of birth.
+            </span>
+          </span>
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field> -->
+
+        <mat-form-field>
+          <input matInput placeholder="Select Date (dd/MM/yyyy)" [matDatepicker]="datepickerRef"
+           name="contractStDate" ngModel #contractStDate="ngModel" [(ngModel)]=customer.contractStDate required readonly/>
+          <mat-datepicker-toggle [for]="datepickerRef" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #datepickerRef></mat-datepicker>
+          <mat-error *ngIf="contractStDate.errors?.required && contractStDate.touched">Choose a Date</mat-error>
+          </mat-form-field>
+
+        <br><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Status</mat-label>
+          <mat-select [(ngModel)]=customer.custStatus name="custStatus">
+            <mat-option value="ACTIVE">ACTIVE</mat-option>
+            <mat-option value="SUSPEND">SUSPEND</mat-option>
+            <mat-option value="CANCELLED">CANCELLED</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <div class="submit-button">
+          <button mat-flat-button color="primary" [disabled]="!signupform.valid" type="submit">Submit</button>
+          
+        </div>
+      </div>
+      <br>
+      {{signupform.form.dirty}}
+    </form>
+    </mat-card>
+    
+    
+  
+  </div>
+</div>
+
+

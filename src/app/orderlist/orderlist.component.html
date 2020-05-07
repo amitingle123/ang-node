@@ -1,20 +1,9 @@
-
-
-<!--
-<a [routerLink] = "'/customers'">
-  Go to Products List
-</a>
-<div *ngFor="let article of articles">
-  <h2>{{article.customerId}}</h2>
-
-    <p>
-      {{article.firstName}}
-    </p>
-    <a href="{{article.lastName}}">Read full article</a>
+<div class="alert alert-danger"
+    *ngIf="errorMessage">
+    {{errorMessage}}
 </div>
--->
 <div class="mat-elevation-z8" style="width: 90%" >
-    <mat-table [dataSource]="dataSource">
+    <mat-table [dataSource]="dataSource" *ngIf="dataSource">
     <ng-container  matColumnDef="orderId">
         <mat-header-cell *matHeaderCellDef>Order ID</mat-header-cell>
         <mat-cell *matCellDef="let dataSource">{{dataSource.orderId}}</mat-cell>

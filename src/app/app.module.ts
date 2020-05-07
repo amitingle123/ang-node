@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomerlistComponent } from './customerlist/customerlist.component';
 import { HomeComponent } from './home/home.component';
 import { MatTableModule } from '@angular/material/table';
@@ -15,6 +15,14 @@ import { FormsModule }   from '@angular/forms';
 import { OrderlistComponent } from './orderlist/orderlist.component';
 import { RegisterComponent } from './register/register.component';
 import { CustdetailsComponent } from './custdetails/custdetails.component';
+import { Covid19Module } from './feature-modules/covid19/covid19.module';
+import { RegTemplateComponent } from './register/regTemplate.component';
+import { RegReactComponent } from './register/regReact.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HighlightDirective }from './shared/app-highlight.directive';
+import { AddHeaderInterceptor } from './shared/add-header.interceptor';
+import { HeroParentComponent } from './shared/hero-parent.component';
+import { HeroChildComponent } from './shared/hero-child.component';
 
 
 @NgModule({
@@ -26,7 +34,12 @@ import { CustdetailsComponent } from './custdetails/custdetails.component';
     ModalTaskComponent,
     OrderlistComponent,
     RegisterComponent,
-    CustdetailsComponent
+    RegTemplateComponent,
+    RegReactComponent,
+    CustdetailsComponent,
+    HighlightDirective,
+    HeroParentComponent,
+    HeroChildComponent
     
   ],
   imports: [
@@ -36,9 +49,13 @@ import { CustdetailsComponent } from './custdetails/custdetails.component';
     MatTableModule,
     BrowserAnimationsModule,
     MyMaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    Covid19Module
   ],
-  providers: [],
+  providers: [
+    { provide : HTTP_INTERCEPTORS,useClass : AddHeaderInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

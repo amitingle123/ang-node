@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header">
+    COVID19 AREA
+  </div>
+  <div class='card-body'>
+    <mat-card><h4>Select your state and district:</h4>
+    <form >
+      
+      <mat-form-field>
+        <mat-label>State Name</mat-label>
+        <mat-select (selectionChange)="onStateSelect($event.value)">
+          <mat-option *ngFor="let obj of states" [value]="obj.code">
+            {{obj.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>District Name</mat-label>
+        <mat-select  (selectionChange)="onDistrictSelect($event.value)">
+          <mat-option *ngFor="let obj of  cityList$ | async" [value]="obj">
+            {{obj.district}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+    </form>
+  </mat-card>
+  </div>
+  <!-- <button (click)='getState();'>click</button>
+<button mat-button (click)="getState()" tabindex="-1">Cancel</button> -->
+</div>
