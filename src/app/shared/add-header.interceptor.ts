@@ -11,11 +11,11 @@ export class AddHeaderInterceptor implements HttpInterceptor {
         
         //clone the request as it is immutable:
         const myreq: HttpRequest<any> = req.clone({
-            setHeaders : {'Content-Type':'application/json'}
+           setHeaders : {'Content-Type':'application/json'}
 
         });
 
-        return next.handle(myreq);
+        return next.handle(req);
 
         
     }

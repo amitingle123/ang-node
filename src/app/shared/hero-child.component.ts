@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 import { Hero } from './hero';
 
@@ -9,7 +9,14 @@ import { Hero } from './hero';
     <p>I, {{hero.name}}, am at your service, {{masterName}}.</p>
   `
 })
-export class HeroChildComponent {
+export class HeroChildComponent implements OnInit,OnChanges{
   @Input() hero: Hero;
   @Input('master') masterName: string;
+
+  ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
+    console.log('HeroChildComponent _ On changes');
+ }
+ ngOnInit(): void {
+     console.log('HeroChildComponent _ On INIT');
+ }
 }

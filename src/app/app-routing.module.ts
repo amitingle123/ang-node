@@ -11,6 +11,7 @@ import { CustDetailsGuard } from './custdetails/cust-details.guard';
 import { RegTemplateComponent } from './register/regTemplate.component';
 import { RegReactComponent } from './register/regReact.component';
 import { CustomerListResolver } from './customerlist/custlist-resolver-service';
+import { HelloParentComponent } from './shared/helloparent-component';
   
 
 
@@ -25,6 +26,7 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent},
     { path: 'registertemplate',component: RegTemplateComponent},
     { path: 'registerreact',component: RegReactComponent},
+    { path: 'hello', component: HelloParentComponent},
     { path: 'customerdetails/:id', canActivate: [CustDetailsGuard] , component :CustdetailsComponent},
     {
       path: 'covid19',

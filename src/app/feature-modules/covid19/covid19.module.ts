@@ -5,6 +5,7 @@ import { Covid19RoutingModule } from './covid19-routing.module';
 import { Covid19ShellComponent } from './covid19-shell.component';
 import { PatientsComponent} from './patients/patients.component';
 import { Covid19CasesComponent } from './covid19-cases.component'
+import { Covid19Service } from './covid19-service.service';
 
 
 
@@ -15,6 +16,7 @@ import { Covid19CasesComponent } from './covid19-cases.component'
     CommonModule,
     Covid19RoutingModule,
     MyMaterialModule
-  ]
+  ],
+  providers:[Covid19Service]
 })
 export class Covid19Module { }

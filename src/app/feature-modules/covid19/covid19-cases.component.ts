@@ -25,11 +25,6 @@ export class Covid19CasesComponent implements OnInit,OnChanges {
       .pipe(map((d : District) => d
         ));
    
-        this.covidService.myTest.subscribe(test=>{
-          console.log('hello-'+test.prototype);
-        }
-        );
-
     // this.covidService.getDistrict().subscribe(dist=> {
 
     //   console.log('------qq--in dist---'+dist.district);

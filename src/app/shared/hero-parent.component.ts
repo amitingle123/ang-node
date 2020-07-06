@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 
 import { HEROES } from './hero';
 
@@ -12,7 +12,15 @@ import { HEROES } from './hero';
     </app-hero-child>
   `
 })
-export class HeroParentComponent {
-  heroes = HEROES;
-  master = 'Master';
+export class HeroParentComponent implements OnInit, OnChanges{
+    heroes = HEROES;
+    master = 'Master';
+
+  ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
+    console.log('------ngOnChanges-----');
+  }
+  ngOnInit(): void {
+      console.log('******ngOnInit******');
+  }
+ 
 }

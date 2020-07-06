@@ -23,6 +23,9 @@ import { HighlightDirective }from './shared/app-highlight.directive';
 import { AddHeaderInterceptor } from './shared/add-header.interceptor';
 import { HeroParentComponent } from './shared/hero-parent.component';
 import { HeroChildComponent } from './shared/hero-child.component';
+import { HelloComponent } from './shared/hello-component';
+import { HelloParentComponent } from './shared/helloparent-component';
+import { CacheInterceptor } from './shared/cache.interceptor';
 
 
 @NgModule({
@@ -39,7 +42,9 @@ import { HeroChildComponent } from './shared/hero-child.component';
     CustdetailsComponent,
     HighlightDirective,
     HeroParentComponent,
-    HeroChildComponent
+    HeroChildComponent,
+    HelloParentComponent,
+    HelloComponent
     
   ],
   imports: [
@@ -54,8 +59,10 @@ import { HeroChildComponent } from './shared/hero-child.component';
     Covid19Module
   ],
   providers: [
-    { provide : HTTP_INTERCEPTORS,useClass : AddHeaderInterceptor, multi: true }
+    // { provide : HTTP_INTERCEPTORS,useClass : AddHeaderInterceptor, multi: true },
+    // { provide : HTTP_INTERCEPTORS,useClass: CacheInterceptor, multi:true }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
